@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "/gRPC;gRPC";
+// Request is a serialization message
+message Request{
+    int64 a = 1; // esses numeros não são valores, mas sim denotam o tamanho que o tipo de dado deve ter quando eles forem serializados
+    int64 b = 2; // cada um dos valores dentro de uma menssagem precisam ter um número único anexado a ele
+    // números entre 1-15 denotam que a menssagem tera tamanho de 1 bit. para 2 bits precisa de um número entre 15-247
+}
+// o que o servidor vai responder, para o request solicitado.
+message Response{
+    int64 result = 1;
+}
+// service registra os servicos que vão receber uma Request e vão retornar uma Response
+service AddService{
+    rpc Add (Request) returns (Response);
+    rpc Multiply (Request) returns (Response);
+}
