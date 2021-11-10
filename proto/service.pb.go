@@ -20,13 +20,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Request is a serialization message
 type Request struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	A int64 `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"`
-	B int64 `protobuf:"varint,2,opt,name=b,proto3" json:"b,omitempty"`
+	A int64 `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"` // esses numeros não são valores, mas sim denotam o tamanho que o tipo de dado deve ter quando eles forem serializados
+	B int64 `protobuf:"varint,2,opt,name=b,proto3" json:"b,omitempty"` // cada um dos valores dentro de uma menssagem precisam ter um número único anexado a ele
 }
 
 func (x *Request) Reset() {
@@ -75,6 +76,7 @@ func (x *Request) GetB() int64 {
 	return 0
 }
 
+// o que o servidor vai responder, para o request solicitado.
 type Response struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
