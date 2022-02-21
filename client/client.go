@@ -8,14 +8,13 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"google.golang.org/grpc"
 )
 
 func main() {
-	conn, err := grpc.Dial("localhost:4040", grpc.WithInsecure(), grpc.WithBlock())
-	//withBlock() means that this function will not return until the connection is made
+	// Set up a connection to the server.
+	conn, err := Connection()
 	if err != nil {
-		log.Fatalf("did not connect: %v", err)
+		log.Printf("failed to dial server %s: %v", *serverAddr, err)
 	}
 	defer conn.Close()
 	client := pb.NewAddServiceClient(conn)

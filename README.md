@@ -28,3 +28,6 @@ $ make run_client
 
 ```sh
 $ make generate
+
+//http://localhost:8080/add/125/125
+//http://localhost:8080/Multiply/125/125
