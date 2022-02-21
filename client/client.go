@@ -34,6 +34,7 @@ func main() {
 	}
 }
 
+// Add Function
 func Add(ctx *gin.Context) {
 	a, err := strconv.ParseUint(ctx.Param("a"), 10, 64)
 	if err != nil {
@@ -57,6 +58,7 @@ func Add(ctx *gin.Context) {
 	}
 }
 
+// Multiply Function
 func Multiply(ctx *gin.Context) {
 	a, err := strconv.ParseUint(ctx.Param("a"), 10, 64)
 	if err != nil {
