@@ -1,8 +1,8 @@
 syntax = "proto3";
 
+option go_package = "/gRPC-Calculator;gRPC_Calculator";
 package proto;
 
-option go_package = "/gRPC;gRPC";
 // Request is a serialization message
 message Request{
     int64 a = 1; // esses numeros não são valores, mas sim denotam o tamanho que o tipo de dado deve ter quando eles forem serializados
